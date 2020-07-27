@@ -25,13 +25,13 @@ def dodela_delilaca():
     while(num1 is None):
         try:
             num1 = int(input())
-        except ValueError:
+        except (ValueError, NameError) as e:
             print("Please write an integer for num1")
 
     while(num2 is None):
         try:
             num2 = int(input())
-        except ValueError:
+        except (ValueError, NameError) as e:
             print("Please write an integer for num2")
 
     print(zajednicki_delilac(num1, num2))

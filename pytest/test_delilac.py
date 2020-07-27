@@ -15,3 +15,7 @@ def test_setup():
 def test_scope():
     print(num)
     assert num == num
+
+def test_invalid_input():
+    with pytest.raises(SyntaxError):
+        dodela_delilaca()
