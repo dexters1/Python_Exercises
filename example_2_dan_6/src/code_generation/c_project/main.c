@@ -8,46 +8,14 @@
 **            Main file
 ** 
 **  Author: Pera Petrovic
-**  Date:   28.07.2020 14:50:59
+**  Date:   28.07.2020 15:04:37
 **********************************************************************************
 
 // generated using template: include.template
 //---------------------------------------------------------------------------------
 
-#include <math.h>   
-// generated using template: function_prototypes.template
-//---------------------------------------------------------------------------------
-
-float zbir(float a, float b);
-
-float razlika(float a, float b);
-
-float proizvod(float a, float b);
-
-void stampa(float a, float b);
-
-// generated using template: functions.template
-//---------------------------------------------------------------------------------
-
-
-float zbir(float a, float b) {
-
-}
-
-float razlika(float a, float b) {
-
-}
-
-float proizvod(float a, float b) {
-
-}
-
-void stampa(float a, float b) {
-
-}
-
-	
-// generated using template: main_block.template
+#include <math.h>
+#include "func.h"// generated using template: main_block.template
 //---------------------------------------------------------------------------------
 
 

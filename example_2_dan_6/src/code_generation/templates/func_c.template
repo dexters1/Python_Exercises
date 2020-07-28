@@ -1,15 +1,14 @@
-// generated using template: main.template
+// generated using template: func_c.template
 //---------------------------------------------------------------------------------
 
 /*********************************************************************************
 **
-**  Module Name: main.c
+**  Module Name: func.c
 **  Description:
-**            Main file
+**            Func file
 ** 
 **  Author: {{author}}
 **  Date:   {{date}}
 **********************************************************************************
 
-{% include 'include.template' %}
-{% include 'main_block.template' %}
+{% include 'functions.template' %}	

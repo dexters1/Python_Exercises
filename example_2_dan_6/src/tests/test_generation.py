@@ -16,5 +16,7 @@ class TestCodeGen(unittest.TestCase):
         """
         Testing code generation
         """    
-        generated = self.code_gen.generate("main.c", functions) 
+        generated = self.code_gen.generate("main.c", functions)
+        generated = self.code_gen.generate1("func.c", functions)
+        generated = self.code_gen.generate2("func.h", functions)
         self.assertEqual(generated, True)      
