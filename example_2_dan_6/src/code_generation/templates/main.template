@@ -1,0 +1,17 @@
+// generated using template: main.template
+//---------------------------------------------------------------------------------
+
+/*********************************************************************************
+**
+**  Module Name: main.c
+**  Description:
+**            Main file
+** 
+**  Author: {{author}}
+**  Date:   {{date}}
+**********************************************************************************
+
+{% include 'include.template' %}   
+{% include 'function_prototypes.template' %}
+{% include 'functions.template' %}	
+{% include 'main_block.template' %}

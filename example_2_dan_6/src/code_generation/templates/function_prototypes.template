@@ -1,0 +1,7 @@
+// generated using template: function_prototypes.template
+//---------------------------------------------------------------------------------
+
+{% for f in functions %}
+{{f.return_type}} {{f.name}}({{f.call_type1}}, {{f.call_type2}});
+
+{% endfor %}
