@@ -10,10 +10,9 @@ int main(int argc, char *argv[])
 	float blok2_var = 0.0f;
 	
 	/* Pozivi funkcija */
-	blok1_var = ulaz();
-	blok2_var = sinus(blok1_var);
-	izlaz(blok1_var);
-	izlaz(blok2_var);
+{% for f in functions %}
+	{{f.name}}(blok1_var);
+{% endfor %}
 	
 return 0;
 }

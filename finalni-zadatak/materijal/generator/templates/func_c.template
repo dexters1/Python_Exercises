@@ -10,6 +10,17 @@
 **  Author: {{author}}
 **  Date:   {{date}}
 **********************************************************************************/
-#include "func.h"
+#include "block_functions.h"
+#define MINGW
+#if defined(MINGW)
+#include <math.h>
+#include <stdio.h>
+#elif defined(MSVC)
+#include <math.h>
+#elif defined(GNU_C)
+#include <math.h>
+#else
+#error Unsuported platform!
+#endif
 
 {% include 'functions.template' %}	

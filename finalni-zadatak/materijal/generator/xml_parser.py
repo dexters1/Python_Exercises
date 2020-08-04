@@ -25,6 +25,14 @@ def find_all_sources(node_name):
 file = open(os.path.dirname(os.path.realpath(__file__)) + '\..\sacasa.graphml','rb')
 graph_root = objectify.parse(file)
 
+#Adding UserDefined block 
+with open("xml_user_defined.xml", "rb") as f:
+    item_string = f.read()
+    item = graph_root.find(".//{*}graph")
+    item.append(etree.fromstring(item_string))
+
+user_defined = graph_root.find(".//{*}user_defined")
+
 
 #Finding useful elements inside the graph
 link_elements = graph_root.findall("//{*}edge", )
@@ -32,9 +40,6 @@ bl_type_el = graph_root.findall(".//{*}Shape")
 bl_name = graph_root.findall(".//{*}NodeLabel")
 node_list = graph_root.findall(".//{*}node")
 fn_type_el = graph_root.findall('.//{*}data[@key="d5"]')
-
-print(etree.tostring(link_elements[0], pretty_print=True))
-print(len(link_elements))
 
 #appending useful information from elements inside the graph onto lists
 block_type_list = []
@@ -49,16 +54,20 @@ fn_list = []
 for fn in fn_type_el:
     fn_list.append(fn)
 
+
+
 #Going through all nodes of a graph and appending useful information onto the final list
 elem = []
 iterator = 0
 for i in range(0, len(block_type_list)):
     L = []
     #append node name
+    if 
     name = 'n' + str(i)
     L.append(name)
     
     #append block_type
+    bl_name_list[i] = bl_name_list[i].replace(" ","_")
     L.append(bl_name_list[i])
     
     #append function_type
@@ -89,5 +98,7 @@ with open('xml_parsed.txt', 'w') as f:
 
 with open('xml_pickle', 'wb') as f:
     pickle.dump(elem, f)
+
+
 
 file.close()

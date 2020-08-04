@@ -8,15 +8,26 @@
 **            Func file
 ** 
 **  Author: Igor Ilic
-**  Date:   03.08.2020 15:58:21
+**  Date:   04.08.2020 11:34:18
 **********************************************************************************/
-#include "func.h"
+#include "block_functions.h"
+#define MINGW
+#if defined(MINGW)
+#include <math.h>
+#include <stdio.h>
+#elif defined(MSVC)
+#include <math.h>
+#elif defined(GNU_C)
+#include <math.h>
+#else
+#error Unsuported platform!
+#endif
 
 // generated using template: functions.template
 //---------------------------------------------------------------------------------
 
 
-float undefined_function() {
+float ulaz() {
 
 }
 
@@ -32,7 +43,7 @@ float tanges(float a) {
 
 }
 
-void undefined_function(float a) {
+void izlaz_3(float a) {
 
 }
 
@@ -40,11 +51,11 @@ float kosinus(float a) {
 
 }
 
-void undefined_function(float a) {
+void izlaz_2(float a) {
 
 }
 
-void undefined_function(float a) {
+void izlaz_1(float a) {
 
 }
 
@@ -52,7 +63,7 @@ float kvkoren(float a) {
 
 }
 
-void undefined_function(float a) {
+void izlaz88(float a) {
 
 }
 

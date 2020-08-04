@@ -8,15 +8,14 @@
 **            Main file
 ** 
 **  Author: Igor Ilic
-**  Date:   03.08.2020 15:58:21
+**  Date:   04.08.2020 11:34:18
 **********************************************************************************/
 
 // generated using template: include.template
 //---------------------------------------------------------------------------------
 
 #include <math.h>
-#include "block_functions.h"
-#include "func.h"// generated using template: main_block.template
+#include "block_functions.h"// generated using template: main_block.template
 //---------------------------------------------------------------------------------
 
 
@@ -28,10 +27,16 @@ int main(int argc, char *argv[])
 	float blok2_var = 0.0f;
 	
 	/* Pozivi funkcija */
-	blok1_var = ulaz();
-	blok2_var = sinus(blok1_var);
-	izlaz(blok1_var);
-	izlaz(blok2_var);
+	ulaz(blok1_var);
+	sinus(blok1_var);
+	korisnicka1(blok1_var);
+	tanges(blok1_var);
+	izlaz_3(blok1_var);
+	kosinus(blok1_var);
+	izlaz_2(blok1_var);
+	izlaz_1(blok1_var);
+	kvkoren(blok1_var);
+	izlaz88(blok1_var);
 	
 return 0;
 }

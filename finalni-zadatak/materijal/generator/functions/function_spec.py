@@ -11,27 +11,49 @@ print(graph_info)
 functions = []
 
 for item in graph_info:
-    if item[3] == "ulaz":
-        dictionary = {
-              "name": item[2],
-              "return_type": "float",
-              "include": "math.h",
-              }
-    elif item[3] == "obrada":
-        dictionary = {
-              "name": item[2],
-              "return_type": "float",
-              "include": "math.h",
-              "call_type": "float a",
-              }
+    if(item[2] == "undefined_function"):
+        if item[3] == "ulaz":
+            dictionary = {
+                  "name": item[1],
+                  "return_type": "float",
+                  "include": "math.h",
+                  }
+        elif item[3] == "obrada":
+            dictionary = {
+                  "name": item[1],
+                  "return_type": "float",
+                  "include": "math.h",
+                  "call_type": "float a",
+                  }
+        else:
+            dictionary = {
+                  "name": item[1],
+                  "return_type": "void",
+                  "include": "math.h",
+                  "call_type": "float a",
+                  }
     else:
-        dictionary = {
-              "name": item[2],
-              "return_type": "void",
-              "include": "math.h",
-              "call_type": "float a",
-              }
-
+        if item[3] == "ulaz":
+            dictionary = {
+                  "name": item[2],
+                  "return_type": "float",
+                  "include": "math.h",
+                  }
+        elif item[3] == "obrada":
+            dictionary = {
+                  "name": item[2],
+                  "return_type": "float",
+                  "include": "math.h",
+                  "call_type": "float a",
+                  }
+        else:
+            dictionary = {
+                  "name": item[2],
+                  "return_type": "void",
+                  "include": "math.h",
+                  "call_type": "float a",
+                  }
+        
     functions.append(dictionary)
 
 

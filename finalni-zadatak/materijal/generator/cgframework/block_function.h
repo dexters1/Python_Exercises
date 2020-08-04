@@ -8,13 +8,13 @@
 **            Header file
 ** 
 **  Author: Igor Ilic
-**  Date:   03.08.2020 15:58:21
+**  Date:   04.08.2020 11:34:18
 **********************************************************************************/
  
 // generated using template: function_prototypes.template
 //---------------------------------------------------------------------------------
 
-float undefined_function();
+float ulaz();
 
 float sinus(float a);
 
@@ -22,15 +22,15 @@ float korisnicka1(float a);
 
 float tanges(float a);
 
-void undefined_function(float a);
+void izlaz_3(float a);
 
 float kosinus(float a);
 
-void undefined_function(float a);
+void izlaz_2(float a);
 
-void undefined_function(float a);
+void izlaz_1(float a);
 
 float kvkoren(float a);
 
-void undefined_function(float a);
+void izlaz88(float a);
 
