@@ -9,6 +9,7 @@ from xml import xml_sort
 from generator import CodeGen
 from functions.function_spec import functions
 from functions.function_spec import user_defined
+from functions.function_spec import all_functions
 
 
 class TestCodeGen(unittest.TestCase):    
@@ -19,7 +20,8 @@ class TestCodeGen(unittest.TestCase):
         """
         self.code_gen = CodeGen("Igor Ilic")
         #Needs to be called to parse and sort xml
-        self.elem = xml_parser.parse_xml("zadatak.graphml")
+        #self.elem = xml_parser.parse_xml("zadatak.graphml")
+        self.elem = xml_parser.parse_xml("sacasa.graphml")
         xml_sort.sort()
 
     def test_generate (self):
@@ -27,7 +29,7 @@ class TestCodeGen(unittest.TestCase):
         Testing code generation
         """    
          
-        generated = self.code_gen.generate("main.c", functions)
+        generated = self.code_gen.generate("main.c", all_functions)
         generated = self.code_gen.generate1("block_functions.c", functions)
         generated = self.code_gen.generate2("block_functions.h", functions)
         generated = self.code_gen.generate_user_defined("user_defined.c", user_defined)

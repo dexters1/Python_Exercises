@@ -9,6 +9,7 @@ with open(os.path.dirname(os.path.abspath(__file__)) + '\..\\xml\\xml_pickle_sor
 
 functions = []
 user_defined = []
+all_functions = []
 
 for item in graph_info:
     if not ("user_defined" in item[0]):
@@ -55,6 +56,7 @@ for item in graph_info:
                       "call_type": "float a",
                       }      
         functions.append(dictionary)
+        all_functions.append(dictionary)
     else:
         dictionary = {
                       "name": item[2],
@@ -63,3 +65,4 @@ for item in graph_info:
                       "call_type": "float a",
                       }
         user_defined.append(dictionary)
+        all_functions.append(dictionary)

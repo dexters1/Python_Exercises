@@ -8,7 +8,7 @@
 **            Func file
 ** 
 **  Author: Igor Ilic
-**  Date:   05.08.2020 13:38:17
+**  Date:   05.08.2020 13:48:15
 **********************************************************************************/
 #include "block_functions.h"
 #define MINGW
@@ -35,19 +35,35 @@ float sinus(float a) {
 
 }
 
-void izlaz_3(float a) {
-
-}
-
 float tanges(float a) {
 
 }
 
-void izlaz_1(float a) {
+float kvkoren(float a) {
 
 }
 
 void izlaz_1(float a) {
+
+}
+
+void izlaz88(float a) {
+
+}
+
+float korisnicka1(float a) {
+
+}
+
+void izlaz_3(float a) {
+
+}
+
+float kosinus(float a) {
+
+}
+
+void izlaz_2(float a) {
 
 }
 
