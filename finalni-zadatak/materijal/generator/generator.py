@@ -7,6 +7,10 @@ from settings import DESTINATION, TEMPLATES_ROOT
 import os
 import time
 
+#Both xml modules need to be run before code generation
+from xml import xml_parser
+from xml import xml_sort
+
 class CodeGen(object):
     """
     CodeGen example no. 2: using includes and lists

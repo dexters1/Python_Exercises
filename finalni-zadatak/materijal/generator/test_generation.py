@@ -65,6 +65,7 @@ class TestCodeGen(unittest.TestCase):
                     assert not (item[4][0] == node)
                     
     #test execution order
+    #Trebalo bi srediti test da pozove konkretno ovaj graf prilikom provere da ne bude na milosti hard codovanja
     def test_execution(self):
         with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml\\xml_pickle_sorted', 'rb') as f:
             graph_info = pickle.load(f)
