@@ -2,7 +2,7 @@
 import unittest
 import os
 import pickle
-#Both xml modules need to be run before code generation
+
 from xml import xml_parser
 from xml import xml_sort
 
@@ -19,7 +19,7 @@ class TestCodeGen(unittest.TestCase):
         """
         self.code_gen = CodeGen("Igor Ilic")
         #Needs to be called to parse and sort xml
-        self.elem = xml_parser.parse_xml("sacasa.graphml")
+        self.elem = xml_parser.parse_xml("zadatak.graphml")
         xml_sort.sort()
 
     def test_generate (self):
@@ -70,6 +70,10 @@ class TestCodeGen(unittest.TestCase):
                     
     #test execution order
     def test_execution(self):
+        
+        self.elem_execution_test = xml_parser.parse_xml("sacasa.graphml")
+        xml_sort.sort()
+    
         with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml\\xml_pickle_sorted', 'rb') as f:
             graph_info = pickle.load(f)
         assert graph_info[0][0] == "n0"
