@@ -18,11 +18,15 @@ class TestCodeGen(unittest.TestCase):
         Setting up test
         """
         self.code_gen = CodeGen("Igor Ilic")
+        #Needs to be called to parse and sort xml
+        self.elem = xml_parser.parse_xml("sacasa.graphml")
+        xml_sort.sort()
 
     def test_generate (self):
         """
         Testing code generation
         """    
+         
         generated = self.code_gen.generate("main.c", functions)
         generated = self.code_gen.generate1("block_functions.c", functions)
         generated = self.code_gen.generate2("block_functions.h", functions)
@@ -32,18 +36,18 @@ class TestCodeGen(unittest.TestCase):
     
     #test if number of source edges for all nodes is <= than 1
     def test_edges(self):
-        for item in xml_parser.elem:
+        for item in self.elem:
             assert len(item[4]) <= 1
     
     #test if all nodes have at least one source or target
     def test_connection(self):
-        for item in xml_parser.elem:
+        for item in self.elem:
             assert  ( len(item[4]) >= 1 ) or ( len(item[5]) >= 1 )
     
     #test if there is only one input block
     def test_one_input(self):
         iter = 0
-        for item in xml_parser.elem:
+        for item in self.elem:
             if item[1] == "ulaz":
                 iter = iter + 1
         assert iter == 1
@@ -51,7 +55,7 @@ class TestCodeGen(unittest.TestCase):
     #test if there is at least one output
     def test_at_least_one_output(self):
         iter = 0
-        for item in xml_parser.elem:
+        for item in self.elem:
             if "izlaz" in item[3]:
                 iter = iter + 1
         print(iter)
@@ -59,13 +63,12 @@ class TestCodeGen(unittest.TestCase):
         
     #test if there is a loop:
     def test_loop(self):
-        for item in xml_parser.elem:
+        for item in self.elem:
             for node in item[5]:
                 if len(item[4]) > 0:
                     assert not (item[4][0] == node)
                     
     #test execution order
-    #Trebalo bi srediti test da pozove konkretno ovaj graf prilikom provere da ne bude na milosti hard codovanja
     def test_execution(self):
         with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml\\xml_pickle_sorted', 'rb') as f:
             graph_info = pickle.load(f)
