@@ -1,7 +1,7 @@
 // generated using template: user_defined.template
 //---------------------------------------------------------------------------------
 
-{% for f in user_functions %}
-{{f.return_type}} {{f.name}}({{f.call_type}});
+float user_defined1(float a);
 
-{% endfor %}
+float user_defined2(float a);
+

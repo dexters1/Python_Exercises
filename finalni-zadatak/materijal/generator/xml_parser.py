@@ -5,6 +5,22 @@ import pickle
 
 BLK_MAP = { "trapezoid": "izlaz", "rectangle": "obrada", "trapezoid2": "ulaz" }
 
+#xml_user_defined moze samo da izmedju vec dve postojece veze stavi user_defined block
+#Ova funkcija te postojece veze menja tako da prolaze kroz user_defined block
+def edge_user_fix():
+    edge_id_target = []
+    edge_id_source = []
+    for edge in link_elements:
+        if "user_defined" in edge.get("source"):
+            edge_id_target.append(edge.get("target"))
+        if "user_defined" in edge.get("target"):
+            edge_id_source.append(edge.get("source"))
+    for i in range(0, len(edge_id_source)):
+        for edge in link_elements:
+            if edge.get("source") == edge_id_source[i] and edge.get("target") == edge_id_target[i]:
+                link_elements.remove(edge)
+        
+
 def find_all_targets(node_name):
     L = []
     for edge in link_elements:
@@ -30,12 +46,16 @@ with open("xml_user_defined.xml", "rb") as f:
     item_string = f.read()
     item = graph_root.find(".//{*}graph")
     item.append(etree.fromstring(item_string))
-
+  
 user_defined = graph_root.find(".//{*}user_defined")
 
 
 #Finding useful elements inside the graph
 link_elements = graph_root.findall("//{*}edge", )
+
+#Modifies xml to accomodate new user_defined block
+edge_user_fix() 
+
 bl_type_el = graph_root.findall(".//{*}Shape")
 bl_name = graph_root.findall(".//{*}NodeLabel")
 node_list = graph_root.findall(".//{*}node")
@@ -59,12 +79,17 @@ for fn in fn_type_el:
 #Going through all nodes of a graph and appending useful information onto the final list
 elem = []
 iterator = 0
+user_defined_iterator = 1
 for i in range(0, len(block_type_list)):
     L = []
     #append node name
-    if 
-    name = 'n' + str(i)
-    L.append(name)
+    if "user_defined" in node_list[i].get("id"):
+        name = 'user_defined' + str(user_defined_iterator)
+        user_defined_iterator = user_defined_iterator + 1
+        L.append(name)
+    else:
+        name = 'n' + str(i)
+        L.append(name)
     
     #append block_type
     bl_name_list[i] = bl_name_list[i].replace(" ","_")
@@ -92,13 +117,13 @@ for i in range(0, len(block_type_list)):
     
     elem.append(L)
     
+
+    
 with open('xml_parsed.txt', 'w') as f:
     for item in elem:
         print >> f, item
 
 with open('xml_pickle', 'wb') as f:
     pickle.dump(elem, f)
-
-
 
 file.close()

@@ -1,13 +1,13 @@
 <user_defined>
-	<node id="user_defined">
+	<node id="user_defined1">
 	  <data key="d4"/>
-	  <data key="d5"><![CDATA[user_defined]]></data>
+	  <data key="d5"><![CDATA[user_defined1]]></data>
 	  <data key="d6">
 	   <ShapeNode>
 		 <Geometry height="40.0" width="80.0" x="-369.0" y="-36.0"/>
 		 <Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
 		 <BorderStyle color="#000000" type="line" width="1.0"/>
-		 <NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.021484375" x="21.9892578125" y="10.6494140625">blok 2<LabelModel>
+		 <NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.021484375" x="21.9892578125" y="10.6494140625">blok user 1<LabelModel>
 			 <SmartNodeLabelModel distance="4.0"/>
 		   </LabelModel>
 		   <ModelParameter>
@@ -18,7 +18,26 @@
 		</ShapeNode>
 	  </data>
 	</node>
-	<edge id="user_edge" source="n1" target="user_defined">
+	<node id="user_defined2">
+	  <data key="d4"/>
+	  <data key="d5"><![CDATA[user_defined2]]></data>
+	  <data key="d6">
+	   <ShapeNode>
+		 <Geometry height="35.0" width="70.0" x="-269.0" y="-26.0"/>
+		 <Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+		 <BorderStyle color="#000000" type="line" width="1.0"/>
+		 <NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="28.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.021484375" x="31.9892578125" y="20.6494140625">blok user 2<LabelModel>
+			 <SmartNodeLabelModel distance="4.0"/>
+		   </LabelModel>
+		   <ModelParameter>
+			 <SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+		   </ModelParameter>
+		 </NodeLabel>
+		  <Shape type="rectangle"/>
+		</ShapeNode>
+	  </data>
+	</node>
+	<edge id="user_edge" source="n1" target="user_defined1">
 	  <data key="d9"/>
 	  <data key="d10">
 		<PolyLineEdge>
@@ -29,7 +48,29 @@
 		</PolyLineEdge>
 	  </data>
 	</edge>
-	<edge id="user_edge" source="user_defined" target="n2">
+	<edge id="user_edge" source="user_defined1" target="n2">
+	  <data key="d9"/>
+	  <data key="d10">
+		<PolyLineEdge>
+		  <Path sx="0.0" sy="0.0" tx="0.0" ty="-6.0"/>
+		  <LineStyle color="#000000" type="line" width="1.0"/>
+		  <Arrows source="none" target="standard"/>
+		  <BendStyle smoothed="false"/>
+		</PolyLineEdge>
+	  </data>
+	</edge>
+		<edge id="user_edge" source="user_defined2" target="n4">
+	  <data key="d9"/>
+	  <data key="d10">
+		<PolyLineEdge>
+		  <Path sx="0.0" sy="0.0" tx="0.0" ty="-6.0"/>
+		  <LineStyle color="#000000" type="line" width="1.0"/>
+		  <Arrows source="none" target="standard"/>
+		  <BendStyle smoothed="false"/>
+		</PolyLineEdge>
+	  </data>
+	</edge>
+		<edge id="user_edge" source="n1" target="user_defined2">
 	  <data key="d9"/>
 	  <data key="d10">
 		<PolyLineEdge>
