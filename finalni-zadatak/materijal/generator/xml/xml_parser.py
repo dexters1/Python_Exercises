@@ -20,7 +20,7 @@ def edge_user_fix():
             if edge.get("source") == edge_id_source[i] and edge.get("target") == edge_id_target[i]:
                 link_elements.remove(edge)
         
-
+#Prolazi kroz sve ivice grafa i apenduje u listu sve ulazne ivice
 def find_all_targets(node_name):
     L = []
     for edge in link_elements:
@@ -28,7 +28,8 @@ def find_all_targets(node_name):
         if source_node == node_name:
             L.append(edge.get("target"))
     return L
-    
+
+#Prolazi kroz sve ivice grafa i apenduje u listu sve izlazne ivice    
 def find_all_sources(node_name):
     L = []
     for edge in link_elements:
@@ -38,11 +39,11 @@ def find_all_sources(node_name):
     return L
 
 #Opening and parsing xml file
-file = open(os.path.dirname(os.path.realpath(__file__)) + '\..\sacasa.graphml','rb')
+file = open(os.path.dirname(os.path.abspath(__file__)) + '\..\..\sacasa.graphml','rb')
 graph_root = objectify.parse(file)
 
 #Adding UserDefined block 
-with open("xml_user_defined.xml", "rb") as f:
+with open(os.path.dirname(os.path.abspath(__file__)) + "\\xml_user_defined.xml", "rb") as f:
     item_string = f.read()
     item = graph_root.find(".//{*}graph")
     item.append(etree.fromstring(item_string))
@@ -56,6 +57,7 @@ link_elements = graph_root.findall("//{*}edge", )
 #Modifies xml to accomodate new user_defined block
 edge_user_fix() 
 
+#Finding useful elements inside the graph
 bl_type_el = graph_root.findall(".//{*}Shape")
 bl_name = graph_root.findall(".//{*}NodeLabel")
 node_list = graph_root.findall(".//{*}node")
@@ -105,7 +107,8 @@ for i in range(0, len(block_type_list)):
             iterator = iterator + 1
     else:
         L.append("undefined_function")
-        
+    
+    #append block type according to BLK_MAP
     L.append(BLK_MAP[block_type_list[i]])
     
     #append sources
@@ -118,12 +121,12 @@ for i in range(0, len(block_type_list)):
     elem.append(L)
     
 
-    
-with open('xml_parsed.txt', 'w') as f:
+#Writes useful extracted information to a txt file    
+with open(os.path.dirname(os.path.abspath(__file__)) +'\\xml_parsed.txt', 'w') as f:
     for item in elem:
         print >> f, item
-
-with open('xml_pickle', 'wb') as f:
+#Writes the elem list with the extracted information to a file
+with open(os.path.dirname(os.path.abspath(__file__)) +'\\xml_pickle', 'wb') as f:
     pickle.dump(elem, f)
 
 file.close()

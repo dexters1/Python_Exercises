@@ -1,6 +1,6 @@
 
 import unittest
-import xml_parser
+from xml import xml_parser
 
 from generator import CodeGen
 from functions.function_spec import functions
