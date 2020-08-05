@@ -1,6 +1,7 @@
 
 import unittest
-
+import os
+import pickle
 #Both xml modules need to be run before code generation
 from xml import xml_parser
 from xml import xml_sort
@@ -62,3 +63,13 @@ class TestCodeGen(unittest.TestCase):
             for node in item[5]:
                 if len(item[4]) > 0:
                     assert not (item[4][0] == node)
+                    
+    #test execution order
+    def test_execution(self):
+        with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml\\xml_pickle_sorted', 'rb') as f:
+            graph_info = pickle.load(f)
+        assert graph_info[0][0] == "n0"
+        assert graph_info[2][0] == "n3"
+        assert graph_info[7][0] == "n9"
+        assert graph_info[11][0] == "n6"
+        assert graph_info[4][0] == "user_defined1"
