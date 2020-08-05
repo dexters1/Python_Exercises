@@ -3,7 +3,7 @@ Specification of functions we want to generate
 """ 
 import pickle
 import os.path
-with open(os.path.dirname(os.path.realpath(__file__)) + '\..\\xml\\xml_pickle', 'rb') as f:
+with open(os.path.dirname(os.path.realpath(__file__)) + '\..\\xml\\xml_pickle_sorted', 'rb') as f:
     graph_info = pickle.load(f)
     
 print(graph_info)
