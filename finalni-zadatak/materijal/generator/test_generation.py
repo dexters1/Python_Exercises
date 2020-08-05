@@ -1,6 +1,9 @@
 
 import unittest
+
+#Both xml modules need to be run before code generation
 from xml import xml_parser
+from xml import xml_sort
 
 from generator import CodeGen
 from functions.function_spec import functions
