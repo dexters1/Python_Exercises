@@ -8,7 +8,7 @@
 **            Main file
 ** 
 **  Author: Igor Ilic
-**  Date:   05.08.2020 13:48:15
+**  Date:   05.08.2020 14:21:36
 **********************************************************************************/
 
 // generated using template: include.template
@@ -31,11 +31,9 @@ int main(int argc, char *argv[])
 	ulaz(blok1_var);
 	sinus(blok1_var);
 	tanges(blok1_var);
-	kvkoren(blok1_var);
 	user_defined1(blok1_var);
 	user_defined2(blok1_var);
 	izlaz_1(blok1_var);
-	izlaz88(blok1_var);
 	korisnicka1(blok1_var);
 	izlaz_3(blok1_var);
 	kosinus(blok1_var);

@@ -10,6 +10,7 @@ from generator import CodeGen
 from functions.function_spec import functions
 from functions.function_spec import user_defined
 from functions.function_spec import all_functions
+from functions.function_spec import function_spec
 
 
 class TestCodeGen(unittest.TestCase):    
@@ -20,9 +21,12 @@ class TestCodeGen(unittest.TestCase):
         """
         self.code_gen = CodeGen("Igor Ilic")
         #Needs to be called to parse and sort xml
-        #self.elem = xml_parser.parse_xml("zadatak.graphml")
-        self.elem = xml_parser.parse_xml("sacasa.graphml")
+        #self.elem = xml_parser.parse_xml("simple.graphml")
+        #self.elem = xml_parser.parse_xml("sacasa.graphml")
+        self.elem = xml_parser.parse_xml("zadatak.graphml")
         xml_sort.sort()
+        function_spec()
+        
 
     def test_generate (self):
         """
@@ -75,6 +79,7 @@ class TestCodeGen(unittest.TestCase):
         
         self.elem_execution_test = xml_parser.parse_xml("sacasa.graphml")
         xml_sort.sort()
+        function_spec()
     
         with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml\\xml_pickle_sorted', 'rb') as f:
             graph_info = pickle.load(f)

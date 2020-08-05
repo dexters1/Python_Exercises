@@ -124,7 +124,7 @@ def parse_xml(file_name):
         
 
     #Writes useful extracted information to a txt file    
-    with open(os.path.dirname(os.path.abspath(__file__)) +'\\xml_parsed.txt', 'w') as f:
+    with open(os.path.dirname(os.path.abspath(__file__)) + '\\xml_parsed.txt', 'w') as f:
         for item in elem:
             print >> f, item
     #Writes the elem list with the extracted information to a file

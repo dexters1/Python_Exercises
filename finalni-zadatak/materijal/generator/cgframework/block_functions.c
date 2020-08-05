@@ -8,7 +8,7 @@
 **            Func file
 ** 
 **  Author: Igor Ilic
-**  Date:   05.08.2020 13:48:15
+**  Date:   05.08.2020 14:21:36
 **********************************************************************************/
 #include "block_functions.h"
 #define MINGW
@@ -39,15 +39,7 @@ float tanges(float a) {
 
 }
 
-float kvkoren(float a) {
-
-}
-
 void izlaz_1(float a) {
-
-}
-
-void izlaz88(float a) {
 
 }
 
